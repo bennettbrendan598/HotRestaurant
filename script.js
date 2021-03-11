@@ -15,13 +15,66 @@ app.get('/tables', (req, res) => res.sendFile(path.join(__dirname, 'tables.html'
 app.get('/reserve', (req, res) => res.sendFile(path.join(__dirname, 'reserve.html')));
 
 //get data from reservation
+/*
 document.getElementById('res-name');
 document.getElementById('res-phone');
 document.getElementById('res-email');
 document.getElementById('res-unique');
+*/
 
-
-
+//reservation and waitlist variables
+let waitList = [
+    {
+        name: "jones smith",
+        phone: "888-707-5587",
+        email: "jones.smith@yahoo.com",
+        uniqueId: "1121",
+    },
+    {
+        name: "wild bill",
+        phone: "321-707-5877",
+        email: "wild.bill@aol.com",
+        uniqueId: "66",
+    },
+    {
+        name: "jack kennedy",
+        phone: "897-707-1687",
+        email: "jack.the.kennedy@gmail.com",
+        uniqueId: "36",
+    },
+];
+let reservation = [
+    {
+        name: "Willy",
+        phone: "77-707-5587",
+        email: "willy@frontier.com",
+        uniqueId: "1",
+    },
+    {
+        name: "George Harrison",
+        phone: "606-770-5587",
+        email: "george.h@the.com",
+        uniqueId: "21",
+    },
+    {
+        name: "Paul Starr",
+        phone: "474-054-8787",
+        email: "paul.starr@y.com",
+        uniqueId: "4",
+    },
+    {
+        name: "John Lenon",
+        phone: "888-777-8587",
+        email: "Lenon.J@yo.com",
+        uniqueId: "121",
+    },
+    {
+        name: "Ringo McCartney",
+        phone: "188-707-5587",
+        email: "Ringo.M@oo.com",
+        uniqueId: "111",
+    },
+];
 
 
 
