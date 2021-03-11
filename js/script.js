@@ -23,7 +23,11 @@ document.getElementById('res-unique');
 */
 
 //reservation and waitlist variables
-let waitList = [
+
+app.get('/api/waitlist', (req, res) => {
+    let waitList = req.params.waitList;
+
+    let waitList = [
     {
         name: "jones smith",
         phone: "888-707-5587",
@@ -42,8 +46,12 @@ let waitList = [
         email: "jack.the.kennedy@gmail.com",
         uniqueId: "36",
     },
-];
-let reservation = [
+]},
+
+app.get('/api/reservation', (req, res) => {
+    let reservation = req.params.reservation;
+
+    let reservation = [
     {
         name: "Willy",
         phone: "77-707-5587",
@@ -74,7 +82,7 @@ let reservation = [
         email: "Ringo.M@oo.com",
         uniqueId: "111",
     },
-];
+]}
 
 
 
