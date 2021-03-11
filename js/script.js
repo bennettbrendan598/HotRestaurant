@@ -76,7 +76,26 @@ let reservation = [
     },
 ];
 
+//Create the logic that handles reservation requests. Your code should work such that POST requests take in JSON objects, checks if there is any space left, then adds the JSON object to either the reservation array or the waitlist array. Your POST route should also respond to requests with a confirmation (true or false) of whether or not the requestor has a reservation (or is on the waiting list).
+/*
+--receive POST request with JSON object
+--check to see how many reservations there are (reservation.length)
+----*if* reservations <5 - 
+-------Schedule Reservation
+-------return Confirmation (true)
+----add to wait list
+----return waitlist confirmation (false)
+*/
 
+const tableCheck = new Promise((resolve, reject) => {
+    const newReservation = req.body;
+    if (reservation.length < 5) {
+        reservations.push(newReservation);
+        return true;
+    };
+    waitList.push(newReservation);
+    return false;
+});
 
 
 
