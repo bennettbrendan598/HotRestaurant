@@ -1,0 +1,23 @@
+{
+  "name": "HotRestaurant",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bennettbrendan598/HotRestaurant.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bennettbrendan598/HotRestaurant/issues"
+  },
+  "homepage": "https://github.com/bennettbrendan598/HotRestaurant#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
