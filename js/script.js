@@ -23,121 +23,131 @@ document.getElementById('res-unique');
 */
 
 //reservation and waitlist variables
-let waitList = [{
-        name: "jones smith",
-        phone: "888-707-5587",
-        email: "jones.smith@yahoo.com",
-        uniqueId: "1121",
-    },
-    {
-        name: "wild bill",
-        phone: "321-707-5877",
-        email: "wild.bill@aol.com",
-        uniqueId: "66",
-    },
-    {
-        name: "jack kennedy",
-        phone: "897-707-1687",
-        email: "jack.the.kennedy@gmail.com",
-        uniqueId: "36",
-    },
-];
-let reservation = [{
-        name: "Willy",
-        phone: "77-707-5587",
-        email: "willy@frontier.com",
-        uniqueId: "1",
-    },
-    {
-        name: "George Harrison",
-        phone: "606-770-5587",
-        email: "george.h@the.com",
-        uniqueId: "21",
-    },
-    {
-        name: "Paul Starr",
-        phone: "474-054-8787",
-        email: "paul.starr@y.com",
-        uniqueId: "4",
-    },
-    {
-        name: "John Lenon",
-        phone: "888-777-8587",
-        email: "Lenon.J@yo.com",
-        uniqueId: "121",
-    },
-    {
-        name: "Ringo McCartney",
-        phone: "188-707-5587",
-        email: "Ringo.M@oo.com",
-        uniqueId: "111",
-    },
-];
 
-//Create the logic that handles reservation requests. Your code should work such that POST requests take in JSON objects, checks if there is any space left, then adds the JSON object to either the reservation array or the waitlist array. Your POST route should also respond to requests with a confirmation (true or false) of whether or not the requestor has a reservation (or is on the waiting list).
-/*
---receive POST request with JSON object
---check to see how many reservations there are (reservation.length)
-----*if* reservations <5 - 
--------Schedule Reservation
--------return Confirmation (true)
-----add to wait list
-----return waitlist confirmation (false)
-*/
+app.get('/api/waitlist', (req, res) => {
+            let waitList = req.params.waitList;
 
-const tableCheck = new Promise((resolve, reject) => {
-    const newReservation = req.body;
-    if (reservation.length < 5) {
-        reservations.push(newReservation);
-        return true;
-    };
-    waitList.push(newReservation);
-    return false;
-});
+            let waitList = [{
+                    name: "jones smith",
+                    phone: "888-707-5587",
+                    email: "jones.smith@yahoo.com",
+                    uniqueId: "1121",
+                },
+                {
+                    name: "wild bill",
+                    phone: "321-707-5877",
+                    email: "wild.bill@aol.com",
+                    uniqueId: "66",
+                },
+                {
+                    name: "jack kennedy",
+                    phone: "897-707-1687",
+                    email: "jack.the.kennedy@gmail.com",
+                    uniqueId: "36",
+                },
+            ]
+        },
+
+        app.get('/api/reservation', (req, res) => {
+                let reservation = req.params.reservation;
+
+                let reservation = [{
+                        name: "Willy",
+                        phone: "77-707-5587",
+                        email: "willy@frontier.com",
+                        uniqueId: "1",
+                    },
+                    {
+                        name: "George Harrison",
+                        phone: "606-770-5587",
+                        email: "george.h@the.com",
+                        uniqueId: "21",
+                    },
+                    {
+                        name: "Paul Starr",
+                        phone: "474-054-8787",
+                        email: "paul.starr@y.com",
+                        uniqueId: "4",
+                    },
+                    {
+                        name: "John Lenon",
+                        phone: "888-777-8587",
+                        email: "Lenon.J@yo.com",
+                        uniqueId: "121",
+                    },
+                    {
+                        name: "Ringo McCartney",
+                        phone: "188-707-5587",
+                        email: "Ringo.M@oo.com",
+                        uniqueId: "111",
+                    },
+                ]
+            }
+
+            //Create the logic that handles reservation requests. Your code should work such that POST requests take in JSON objects, checks if there is any space left, then adds the JSON object to either the reservation array or the waitlist array. Your POST route should also respond to requests with a confirmation (true or false) of whether or not the requestor has a reservation (or is on the waiting list).
+            /*
+            --receive POST request with JSON object
+            --check to see how many reservations there are (reservation.length)
+            ----*if* reservations <5 - 
+            -------Schedule Reservation
+            -------return Confirmation (true)
+            ----add to wait list
+            ----return waitlist confirmation (false)
+            */
+
+            const tableCheck = new Promise((resolve, reject) => {
+                const newReservation = req.body;
+                if (reservation.length < 5) {
+                    reservations.push(newReservation);
+                    return true;
+                };
+                waitList.push(newReservation);
+                return false;
+            });
 
 
 
-app.listen(PORT, () => console.log(`App listening on PORT http://localhost:${PORT}`));
+            app.listen(PORT, () => console.log(`App listening on PORT http://localhost:${PORT}`));
 
 
-// Justin's code starts at this point. Dom's code is stupid.
+            // Justin's code starts at this point. Dom's code is stupid.
 
-const viewTablesBtn = document.getElementById('view-tables');
-const reservationBtn = document.getElementById('res-button');
-// const homeBtn = document.getElementById('**Button ID**');
-const nameEl = document.getElementById('** Name ID **');
-const phoneEl = document.getElementById('** Phone ID **');
-const emailEl = document.getElementById('** email ID **');
-const uniqueEl = document.getElementById('** unique ID **');
+            const viewTablesBtn = document.getElementById('view-tables');
+            const reservationBtn = document.getElementById('res-button');
+            // const homeBtn = document.getElementById('**Button ID**');
+            const nameEl = document.getElementById('** Name ID **');
+            const phoneEl = document.getElementById('** Phone ID **');
+            const emailEl = document.getElementById('** email ID **');
+            const uniqueEl = document.getElementById('** unique ID **');
 
-viewTablesBtn.addEventListener('click', () => {
-        fetch(`path to API spot${object}`), {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application.json',
-            },
-        }
-    })
-    .then((response) => response.json())
-    .then((data) => {
-        console.log(data);
-    })
-    .catch((error) => {
-        console.error(error);
-    });
+            viewTablesBtn.addEventListener('click', () => {
+                fetch(`path to API spot${object}`), {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application.json',
+                    },
+                }
+            })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
 
-reservationBtn.addEventListener('click', () => {
-        fetch(`path to API spot${object}`), {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application.json',
-            },
-        }
-    })
-    .then((response) => response.json())
-    .then((data) => {
-        console.log(data);
-    })
-    .catch((error) => {
-        console.error(error);
-    });
+            reservationBtn.addEventListener('click', () => {
+                fetch(`path to API spot${object}`), {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application.json',
+                    },
+                }
+            })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
