@@ -28,3 +28,47 @@ document.getElementById('res-unique');
 
 
 app.listen(PORT, () => console.log(`App listening on PORT http://localhost:${PORT}`));
+
+
+
+// Justin's code starts at this point. Dom's code is stupid.
+
+const viewTablesBtn = document.getElementById('view-tables');
+const reservationBtn = document.getElementById('res-button');
+// const homeBtn = document.getElementById('**Button ID**');
+const nameEl = document.getElementById('** Name ID **');
+const phoneEl = document.getElementById('** Phone ID **');
+const emailEl = document.getElementById('** email ID **');
+const uniqueEl = document.getElementById('** unique ID **');
+
+viewTablesBtn.addEventListener('click', () => {
+        fetch(`path to API spot${object}`), {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application.json',
+            },
+        }
+    })
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data);
+    })
+    .catch((error) => {
+        console.error(error);
+    });
+
+reservationBtn.addEventListener('click', () => {
+        fetch(`path to API spot${object}`), {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application.json',
+            },
+        }
+    })
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data);
+    })
+    .catch((error) => {
+        console.error(error);
+    });
